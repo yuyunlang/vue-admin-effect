@@ -1,5 +1,5 @@
 <template>
-  <div class="dndList">
+  <div class="sadRows">
     <div :style="{width:width1}" class="dndList-list">
       <h3>{{ list1Title }}</h3>
       <draggable :set-data="setData" :list="list1" group="article" class="dragArea">
@@ -7,15 +7,15 @@
           <div class="list-complete-item-handle">
             {{ element.id }}[{{ element.author }}] {{ element.title }}
           </div>
-          <div style="position:absolute;right:0px;">
+          <!-- <div style="position:absolute;right:0px;">
             <span style="float: right ;margin-top: -20px;margin-right:5px;" @click="deleteEle(element)">
               <i style="color:#ff4949" class="el-icon-delete" />
             </span>
-          </div>
+          </div> -->
         </div>
       </draggable>
     </div>
-    <div :style="{width:width2}" class="dndList-list">
+    <!-- <div :style="{width:width2}" class="dndList-list">
       <h3>{{ list2Title }}</h3>
       <draggable :list="list2" group="article" class="dragArea">
         <div v-for="element in list2" :key="element.id" class="list-complete-item">
@@ -24,7 +24,7 @@
           </div>
         </div>
       </draggable>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -32,7 +32,7 @@
 import draggable from 'vuedraggable'
 
 export default {
-  name: 'DndList',
+  name: 'SadRows',
   components: { draggable },
   props: {
     list1: {
@@ -57,7 +57,7 @@ export default {
     },
     width1: {
       type: String,
-      default: '48%'
+      default: '96%'
     },
     width2: {
       type: String,
@@ -105,7 +105,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dndList {
+.sadRows {
   background: #fff;
   padding-bottom: 40px;
   &:after {
@@ -128,6 +128,8 @@ export default {
 }
 
 .list-complete-item {
+  margin:0 1%;
+  width:48%;
   cursor: pointer;
   position: relative;
   font-size: 14px;
@@ -135,6 +137,7 @@ export default {
   margin-top: 4px;
   border: 1px solid #bfcbd9;
   transition: all 1s;
+  float: left;
 }
 
 .list-complete-item-handle {

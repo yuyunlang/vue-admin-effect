@@ -84,6 +84,18 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/effect',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/effect/index'),
+        name: 'Effect',
+        meta: { title: 'Effect', icon: 'documentation', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/documentation',
     component: Layout,
     children: [
